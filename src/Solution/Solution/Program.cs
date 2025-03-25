@@ -9,7 +9,7 @@ internal class Program
     static void Main(string[] args)
     {
         // Browser history
-        HistoryStack browserHistory = new HistoryStack();
+        HistoryManager browserHistory = new HistoryManager();
         browserHistory.KunjungiHalaman("google.com");
         browserHistory.KunjungiHalaman("example.com");
         browserHistory.KunjungiHalaman("stackoverflow.com");

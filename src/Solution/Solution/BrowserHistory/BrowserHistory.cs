@@ -10,7 +10,7 @@ namespace Solution.BrowserHistory
         }
     }
 
-    public class HistoryStack
+    public class HistoryManager
     {
         private class Node
         {
@@ -26,7 +26,7 @@ namespace Solution.BrowserHistory
 
         private Node top;
 
-        public HistoryStack()
+        public HistoryManager()
         {
             top = null;
         }
@@ -43,7 +43,7 @@ namespace Solution.BrowserHistory
         public string Kembali()
         {
             if (top == null || top.Next == null) {
-                return null;
+                return "Tidak ada halaman sebelumnya.";
             }
 
             top = top.Next;
@@ -58,7 +58,6 @@ namespace Solution.BrowserHistory
         public void TampilkanHistory()
         {
             Node current = top;
-            int index = 1;
             Stack<string> historyStack = new Stack<string>();
 
             while (current != null) {
@@ -67,8 +66,7 @@ namespace Solution.BrowserHistory
             }
 
             while (historyStack.Count > 0) {
-                Console.WriteLine($"{index}. {historyStack.Pop()}");
-                index++;
+                Console.WriteLine(historyStack.Pop());
             }
         }
     }
